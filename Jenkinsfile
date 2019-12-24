@@ -1,10 +1,10 @@
 pipeline {
-  agent any
-  stages {
-    stage('Lint HTML') {
-      steps {
-        sh 'tidy -q -e *.html'
-      }
+    agent { docker { image 'python:3.5.1' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
+        }
     }
-  }
 }
